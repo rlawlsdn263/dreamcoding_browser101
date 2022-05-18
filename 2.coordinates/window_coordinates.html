@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coordinates</title>
+    <style>
+        .box {
+            background-color: thistle;
+            height: 200px;
+            width: 200px;
+            margin-bottom: 5px;
+        }
+
+        .red {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box"></div>
+    <div class="box red"></div>
+    <div class="box"></div>
+
+    <script>
+        const red = document.querySelector('.red');
+
+        red.addEventListener('click', (e) => {
+            console.log(red.getBoundingClientRect());
+            red.innerHTML = `
+            pageX, pageY: ${e.pageX}, ${e.pageY} </br>
+            clientX, clientY: ${e.clientX}, ${e.clientY} </br>
+            `;
+        })
+    </script>
+</body>
+</html>
