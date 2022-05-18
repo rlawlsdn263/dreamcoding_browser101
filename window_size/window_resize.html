@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #box {
+            display: flex;
+            flex-direction: column;
+
+            width: 500px;
+            height: 300px;
+            background-color: gray;
+        }
+    </style>
+    <title>Window Size</title>
+</head>
+<body>
+    <div id="box">
+        <span id="screen">This is screen</span>
+        <span id="outer">This is outer</span>
+        <span id="inner">This is inner</span>
+        <span id="clientWidth">This is clientWidth</span>
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        const box = document.getElementById('box');
+
+        function windowSizeHandler() {
+            const screen = document.getElementById('screen');
+            const outer = document.getElementById('outer');
+            const inner = document.getElementById('inner');
+            const clientWidth = document.getElementById('clientWidth');
+
+            screen.innerText = `window.screen: ${window.screen.width}, ${window.screen.height}`;
+            outer.innerText = `window.outer: ${window.outerWidth}, ${window.outerHeight}`;
+            inner.innerText = `window.inner: ${window.innerWidth}, ${window.innerHeight}`;
+            clientWidth.innerText = `documentElement.clientWidth: ${document.documentElement.clientWidth}, ${document.documentElement.clientHeight}`;
+        }
+
+        windowSizeHandler();
+        window.addEventListener('resize', windowSizeHandler);
+    </script>
+</body>
+</html>
