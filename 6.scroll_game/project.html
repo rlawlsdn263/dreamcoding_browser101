@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find a Rabbit!</title>
+    <style>
+        body {
+            background-color: black;
+            text-align: center;
+        }
+
+        img {
+            display: block;
+            margin: auto;
+        }
+
+        .button {
+            width: 200px;
+            height: 50px;
+            font-size: 24px;
+            border-radius: 5px;
+            margin-bottom: 50px;
+        }
+    </style>
+</head>
+<body>
+    <button class="button">Find the rabbit</button>
+    <script>
+        const button = document.querySelector('.button');
+        
+        const array = [
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'carrot', img: 'img/carrot.png'},
+            {name: 'rabbit', img: 'img/rabbit.png'},
+        ];
+
+        array.sort(() => Math.random() -0.5);
+
+        function createBoard() {
+            for(let i = 0; i < array.length; i++) {
+                const img = document.createElement('img');
+                img.setAttribute('src', array[i].img);
+                if(array[i].name == 'rabbit') {
+                    img.classList.add('rabbit');
+                }
+                document.body.appendChild(img);
+            };
+        };
+        createBoard();
+
+        const rabbit = document.querySelector('.rabbit');
+        button.addEventListener('click', () => {
+            rabbit.scrollIntoView({behavior: 'smooth', block:'center'});
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            display: inline-block;
+            background-color: aqua;
+            font-size: 24px;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">Window Size</div>
+    <!-- JS -->
+    <script>
+        const container = document.querySelector('.container');
+        
+        window.addEventListener('resize', () => {
+            container.innerHTML = `
+            window.screen: ${window.screen.width}, ${window.screen.height}<br>
+            window.inner: ${window.innerWidth}, ${window.innerHeight}<br>
+            window.outer: ${window.outerWidth}, ${window.outerHeight}<br>
+            document.body.client: ${document.body.clientWidth}, ${document.body.clientHeight}<br>
+            document.body.scroll: ${document.body.scrollWidth}, ${document.body.scrollHeight}<br>
+            document.body.offset: ${document.body.offsetWidth}, ${document.body.offsetHeight}<br>
+            document.body.getBoundingClientRects: ${document.body.getBoundingClientRect().width}, ${document.body.getBoundingClientRect().height};
+        `;
+        });
+    </script>
+</body>
+</html>
