@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        div {
+            width: 100vw;
+            height: 50vh;
+        }
+        button {
+            width: 100px;
+            height: 50px;
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .box1 {
+            background-color: teal;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box2 {
+            background-color: orange;
+        }
+        .position-absolute {
+            position: absolute;
+        }
+    </style>
+    <title>Random Summon</title>
+</head>
+<body>
+    <div class="box1">
+        <button>Summon</button>
+    </div>
+    <div class="box2"></div>
+
+    <script>
+        const field = document.querySelector('.box2');
+        const button = document.querySelector('button');
+
+        function createBug() {
+            const bug = document.createElement('img');
+            let randomHeight = Math.round(Math.random()*field.getBoundingClientRect().height);
+            let randomWidth = Math.round(Math.random()*field.getBoundingClientRect().width);
+            bug.classList.add('position-absolute');
+            bug.style.bottom = `${randomHeight}px`;
+            bug.style.left = `${randomWidth}px`;
+            bug.src = '../img/bug.png';
+            field.appendChild(bug);
+        }
+
+        function createCarrot() {
+            const carrot = document.createElement('img');
+            let randomHeight = Math.round(Math.random()*field.getBoundingClientRect().height);
+            let randomWidth = Math.round(Math.random()*field.getBoundingClientRect().width);
+            carrot.classList.add('position-absolute');
+            carrot.style.bottom = `${randomHeight}px`;
+            carrot.style.left = `${randomWidth}px`;
+            carrot.src = '../img/carrot.png';
+            field.appendChild(carrot);
+        }
+
+        button.addEventListener('click', () => {
+            for(let i = 0; i < 10; i++) {
+                createBug();
+                createCarrot();
+            };
+        });
+    </script>
+</body>
+</html>
